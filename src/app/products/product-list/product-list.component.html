@@ -1,0 +1,124 @@
+<nav class="navbar navbar-expand-lg position-fixed top-0 w-100">
+  <div class="container">
+    <h5 class="text-white fst-italic">My Theatre</h5>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa-solid fa-bars text-white"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item me-3">
+          <a class="nav-link text-white" href="http://localhost:4200/productList">Home</a>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link text-white" href="http://localhost:4200/productList#service">Services</a>
+        </li>
+        <li class="nav-item me-3">
+          <a class="nav-link text-white" href="http://localhost:4200/productList#movie">Movies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="http://localhost:4200/productList#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="back text-white d-flex align-items-center justify-content-center">
+  <div class="text-center">
+    <p class="m-0 fs-4 fst-italic">Welcome To My Theatre</p>
+    <h1>Watch films and enjoy</h1>
+    <a href="http://localhost:4200/productList#contact" class="btn btn-warning text-white rounded-1 mt-3">Contact Us</a>
+  </div>
+</div>
+<div class="py-5 text-center" id="service">
+  <div class="container">
+    <div class="title mb-5">
+      <h1>Our Services</h1>
+      <p class="m-0 text-black-50 fst-italic">Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="box mb-4">
+          <div class="d-flex justify-content-center mb-2">
+            <div class="widhei text-white bg-warning rounded-circle fs-1 d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-laptop"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="fw-bold">Movies</h4>
+            <p class="m-0 text-secondary">You can watch and listen to movies, and you can watch your favorite movie anytime you like.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="box mb-4">
+          <div class="d-flex justify-content-center mb-2">
+            <div class="widhei text-white bg-warning rounded-circle fs-1 d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-whiskey-glass"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="fw-bold">Foods</h4>
+            <p class="m-0 text-secondary">You can grab some food while watching movies, such as popcorn and pulp.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="box mb-4">
+          <div class="d-flex justify-content-center mb-2">
+            <div class="widhei text-white bg-warning rounded-circle fs-1 d-flex justify-content-center align-items-center">
+              <i class="fa-solid fa-mug-saucer"></i>
+            </div>
+          </div>
+          <div>
+            <h4 class="fw-bold">Drinks</h4>
+            <p class="m-0 text-secondary">You can drink some drinks while watching movies, such as tea, coffee, and cola.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center py-5 bg-light bg-gradient" id="movie">
+  <div class="container">
+    <div class="title mb-5">
+      <h1>Our Movies</h1>
+      <p class="m-0 text-black-50 fst-italic">Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+    <div class="row gap-x-1 movies">
+      <app-product-card *ngFor="let mov of myMovies" [movie]="mov" class="col-lg-4 col-md-6 mb-4"/>
+    </div>
+  </div>
+</div>
+<div class="contact py-5" id="contact">
+  <div class="container">
+    <div class="text-center">
+      <h1 class="text-white">Contact Us</h1>
+      <p class="m-0 text-white-50 fst-italic">Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+    <div class="mt-4">
+      <form #myform="ngForm">
+        <div class="d-flex gap-4 flex-column flex-md-row">
+          <div class="w-100 w-md-50">
+            <input type="text" name="name" placeholder="Your Name" [(ngModel)]="user.name"
+            class="w-100 mb-3 p-3 py-2 rounded-1" required><br>
+            <input type="email" name="email" placeholder="Your Email" [(ngModel)]="user.email"
+            class="w-100 mb-3 p-3 py-2 rounded-1" required><br>
+            <input type="text" name="phone" placeholder="Your Phone" [(ngModel)]="user.phone"
+            class="w-100 p-3 py-2 rounded-1"><br>
+          </div>
+          <div class="w-100 w-md-50">
+            <textarea name="message" id="mess" placeholder="Your Message" [(ngModel)]="user.message"
+            class="h-100 w-100 p-3 py-2 rounded-1" required></textarea>
+          </div>
+        </div>
+        <div class="text-center mt-4">
+          <button type="submit" [disabled]="myform.invalid"
+          class="btn btn-warning text-white rounded-1" (click)="send(myform.value)">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="py-3 text-center container">
+  <p class="m-0 text-muted">Copyright &copy; 2023 Abdo Ahmed All rights reserved.</p>
+</div>

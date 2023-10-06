@@ -1,0 +1,36 @@
+.back {
+  background-image: url("../imgs/images.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+.contact {
+  background-image: url("../imgs/map-image.png");
+  background-size: cover;
+  background-color: #212529;
+}
+input,textarea
+{
+  outline: none;
+  border: none;
+}
+@media(max-width:767px){
+  textarea {
+    height: 150px !important;
+  }
+}
+.widhei
+{
+  width: 100px;
+  height: 100px;
+}
+.navbar{
+  background-color: #040505;
+  z-index: 1000;
+}
+.navbar-toggler{
+  border: 1px solid #00800087 !important;
+}
+.navbar-toggler:focus{
+  box-shadow: none;
+}

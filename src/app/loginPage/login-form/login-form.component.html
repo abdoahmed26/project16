@@ -1,0 +1,31 @@
+<div class="parent">
+  <div class="container w-100 h-100 d-flex justify-content-center align-items-center">
+    <div class="bg-white size rounded-4">
+      <h3 class="text-center py-3 border-bottom border-2">Login</h3>
+      <form #myform="ngForm" action="" class="mt-4 mb-4 px-4">
+        <div>
+          <input type="email" id="user" [(ngModel)]="loginData.username" required minlength="5"
+          name="email" placeholder="Email" class="border-bottom border-3 p-2">
+        </div>
+        <div>
+          <input type="password" [(ngModel)]="loginData.password" required minlength="5"
+          name="password" placeholder="Password" class="border-bottom border-3 p-2 mt-3">
+        </div>
+        <p [ngClass]="isvalid ? 'd-block':'d-none'"
+            class="fonSi text-danger m-0">Not Found Account Please Signup</p>
+        <p [ngClass]="isvalidEmail ? 'd-block':'d-none'"
+            class="fonSi text-danger m-0">Email is wrong</p>
+        <p [ngClass]="isvalidPass ? 'd-block':'d-none'"
+            class="fonSi text-danger m-0">Password is wrong</p>
+        <div>
+          <input type="submit" value="Login" [disabled]="myform.invalid"
+          class="w-100 mt-4 rounded-pill borbtn" (click)="print(myform.value)">
+        </div>
+      </form>
+      <div class="text-center my-3 text-secondary">
+        Not a Member ?
+        <a href="#" [routerLink]="['/register']" class="text-decoration-none">Signup</a>
+      </div>
+    </div>
+  </div>
+</div>

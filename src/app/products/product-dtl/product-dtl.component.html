@@ -1,0 +1,102 @@
+<button class="cart btn btn-success position-fixed px-4" (click)="openCart()">View Cart</button>
+<div class="buying py-5 px-3 text-center">
+  <div class="d-flex justify-content-end">
+    <div class="close text-white fs-4" (click)="closeCart()">
+      <i class="fa-solid fa-xmark"></i>
+    </div>
+  </div>
+  <div class="movie mt-3">
+    <div class="text-start">
+      <h5 class="text-white">The show day : <span class="day">00-00-0000</span></h5>
+      <h5 class="text-white">The show time : <span class="time">00-00-00</span></h5>
+    </div>
+    <div class="mt-4 mytkit">
+    </div>
+    <div class="mb-4">
+      <h5 class="text-white">Your Chair</h5>
+      <div class="mychair mt-3">
+      </div>
+      <button class="dele btn btn-danger px-2 py-1 mt-3">Delete</button>
+    </div>
+    <div class="mb-4">
+      <h5 class="text-white">Your Food</h5>
+      <div class="myFood mt-3">
+      </div>
+    </div>
+  </div>
+  <div class="myTotal bg-success text-white">
+    Total : <span class="total">0</span>
+  </div>
+  <div class="mt-4">
+    <button class="btn btn-primary" (click)="save($event)">Save</button>
+    <button class="btn btn-success d-none"><i class="fa-solid fa-check"></i> Done</button>
+  </div>
+</div>
+<div class="py-5 bg-light bg-gradient">
+  <div class="container">
+    <div class="row flex-column flex-md-row">
+      <div class="col-lg-4 col-md-6">
+        <div class="box mb-4 bg-white p-3 rounded-2">
+          <label for="date" class="">Choose the show day</label><br>
+          <input type="date" name="date" #date id="date" class="date mb-3" (input)="showDay(date.value)"><br>
+          <label for="time">Choose the show time</label><br>
+          <select name="time" id="time" #mytime class="timeInp text-secondary" (input)="showTime(mytime.value)">
+            <option value="choose">Choose time</option>
+            <option value="4-6 PM">4 to 6 PM</option>
+            <option value="8-10 PM">8 to 10 PM</option>
+            <option value="12-2 AM">12 to 2 AM</option>
+          </select>
+        </div>
+      </div>
+      <div class="box col-lg-4 col-md-6 text-center">
+        <div class="card p-0">
+          <img src="https://image.tmdb.org/t/p/original{{movie.image}}" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">{{movie.title}}</h5>
+            <p class="card-text text-secondary">{{movie.description|slice:0:60}}</p>
+            <p class="card-text text-danger fs-6">${{movie.price}}</p>
+            <button class="btnCart btn btn-primary" (click)="getCart()">Add To Cart</button>
+            <button class="btnDone btn btn-success d-none"><i class="fa-solid fa-check"></i> Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-5">
+  <div class="container">
+    <div class="title text-center">
+      <h1>Choose Chairs</h1>
+    </div>
+    <div class="row mt-4">
+      <div class="box just">
+        <button #cha *ngFor="let myCh of chair" class="btnCha btn btn-secondary m-2" (click)="chooseChair(cha)">{{myCh}}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-5 bg-light bg-gradient">
+  <div class="container">
+    <div class="title  text-center">
+      <h1>Choose Foods</h1>
+    </div>
+    <div class="row mt-5 myrowFood">
+      <div class="col-lg-4 col-md-6" *ngFor="let chil of Food">
+        <div class="myFood card p-0 text-center mb-4" id='div{{chil.id}}'>
+          <div class="imgs rounded-top" style="background-image: url({{chil.image}})">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{chil.title}}</h5>
+            <p class="card-text text-secondary">{{chil.description}}</p>
+            <p class="card-text text-danger fs-6">$ <span>{{chil.price}}</span></p>
+            <button class="btnFood btn btn-primary" (click)="getFood(chil)" id="btnFood{{chil.id}}">Add To Cart</button>
+            <button class="btnTom btn btn-success d-none" id="btntom{{chil.id}}"><i class="fa-solid fa-check"></i> Done</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="py-3 text-center container">
+  <p class="m-0 text-muted">Copyright &copy; 2023 Abdo Ahmed All rights reserved.</p>
+</div>

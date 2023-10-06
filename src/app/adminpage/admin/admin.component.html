@@ -1,0 +1,63 @@
+<div class="parent py-5">
+  <div class="container w-100 h-100 d-flex justify-content-center align-items-center">
+    <div class="bg-white size rounded-4">
+      <h3 class="text-center py-3 border-bottom border-2">Admin</h3>
+      <form #myform="ngForm" action="" class="mt-4 mb-4 px-4">
+        <div>
+          <select name="depart" #depart
+          class="w-100 border-0 border-bottom border-3 p-2 outline-0 text-black mt-3" required>
+            <option value="choose" class="text-black">Choose Department</option>
+            <option value="film" class="text-black">Films</option>
+            <option value="food" class="text-black">Foods</option>
+          </select>
+        </div>
+        <div>
+          <select name="opera" #oper (input)="show(oper.value)"
+          class="w-100 border-0 border-bottom border-3 p-2 outline-0 text-black" required>
+            <option value="choose" class="text-black">Choose Operation</option>
+            <option value="add" class="text-black">Add</option>
+            <option value="update" class="text-black">Update</option>
+            <option value="delete" class="text-black">Delete</option>
+          </select>
+        </div>
+        <div class="myId d-none">
+          <input type="number" required [(ngModel)]="adminData.id"
+          name="id" placeholder="Enter The Id" class="border-bottom border-3 p-2 mt-3">
+        </div>
+        <div class="myUp d-none">
+          <select name="whaUpdate" #update (input)="upDate(update,img,title,des,price)"
+          class="w-100 border-0 border-bottom border-3 p-2 outline-0 text-black" required>
+            <option value="choose" class="text-black">What you want to update</option>
+            <option value="img" class="text-black">Img</option>
+            <option value="title" class="text-black">Title</option>
+            <option value="des" class="text-black">Description</option>
+            <option value="price" class="text-black">Price</option>
+          </select>
+        </div>
+        <div>
+          <div #img class="myTot d-none" id="img">
+            <input type="text" required [(ngModel)]="adminData.img"
+            name="image" placeholder="Enter Link Of Img" class="border-bottom border-3 p-2 mt-3">
+          </div>
+          <div #title class="myTot d-none" id="title">
+            <input type="text" required [(ngModel)]="adminData.title"
+            name="title" placeholder="Enter The Title" class="border-bottom border-3 p-2 mt-3">
+          </div>
+          <div #des class="myTot d-none" id="des">
+            <input type="text" maxlength="60" [(ngModel)]="adminData.des"
+            name="description" placeholder="Enter The Description" class="border-bottom border-3 p-2 mt-3">
+          </div>
+          <div #price class="myTot d-none" id="price">
+            <input type="number" required [(ngModel)]="adminData.pric"
+            name="price" placeholder="Enter The Price" class="border-bottom border-3 p-2 mt-3">
+          </div>
+        </div>
+        <div class="text-center">
+          <input type="submit" #sub value="Submit" (click)="getData(depart,oper,myform.value,sub,done)"
+          class="w-100 mt-4 rounded-pill borbtn">
+          <button #done class="btnDone btn btn-success mt-4 d-none"><i class="fa-solid fa-check"></i> Done</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

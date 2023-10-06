@@ -1,0 +1,39 @@
+<div class="parent w-100">
+  <div class="container w-100 h-100 d-flex justify-content-center align-items-center">
+    <div class="bg-white size rounded-4">
+      <h3 class="text-center py-3 border-bottom border-2">Register</h3>
+      <form #myform="ngForm" action="" class="mt-4 mb-4 px-4">
+        <div>
+          <input type="text" #user="ngModel" [(ngModel)]="regiData.username" required minlength="5"
+          name="username" placeholder="Name" class="border-bottom border-3 p-2">
+          <p *ngIf="user?.errors?.['minlength']" class="fonSi text-danger m-0">Username Less Than 5</p>
+        </div>
+        <div>
+          <input type="email" #email="ngModel" [(ngModel)]="regiData.email" required minlength="5"
+          name="email" placeholder="Email" class="border-bottom border-3 p-2 mt-3">
+          <p *ngIf="email?.errors?.['minlength']" class="fonSi text-danger m-0">Email Less Than 5</p>
+        </div>
+        <div>
+          <input type="password" #pass="ngModel" [(ngModel)]="regiData.password" required minlength="5"
+          name="password" placeholder="Password" class="border-bottom border-3 p-2 mt-3">
+          <p *ngIf="pass?.errors?.['minlength']" class="fonSi text-danger m-0">PassWord Less Than 5</p>
+        </div>
+        <div>
+          <input type="password" #con="ngModel" [(ngModel)]="regiData.confPass" required minlength="5"
+          name="confPass" placeholder="Confirm Password" class="border-bottom border-3 p-2 mt-3">
+          <p *ngIf="con?.errors?.['minlength']" class="fonSi text-danger m-0">Confirm Password Less Than 5</p>
+          <p [ngClass]="isvalid ? 'd-block':'d-none'"
+            class="fonSi text-danger m-0">The Confirm password is different from the password</p>
+        </div>
+        <div>
+          <input type="submit" value="Sign Up" [disabled]="myform.invalid"
+          class="w-100 mt-4 rounded-pill borbtn" (click)="print(myform.value)">
+        </div>
+      </form>
+      <div class="text-center my-3 text-secondary">
+        Have an Account ?
+        <a href="#/" [routerLink]="['/login']" class="text-decoration-none">Login Here</a>
+      </div>
+    </div>
+  </div>
+</div>

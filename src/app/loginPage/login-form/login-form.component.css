@@ -1,0 +1,25 @@
+.parent{
+  background-image: url("../imgs/background-features.5f7a9ac9.jpg");
+  background-size: contain;
+  height: 100vh;
+}
+.size
+{
+  width: 350px;
+  height: fit-content;
+}
+.size input {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+.size .borbtn {
+  height: 40px;
+  border: 1px solid black;
+  font-weight: bold;
+  font-size: 18px;
+}
+p.fonSi
+{
+  font-size: 14px;
+}
